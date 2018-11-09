@@ -39,15 +39,13 @@ function my_cool_plugin_create_menu() {
     //call register settings function
     add_action('admin_init', 'register_my_cool_plugin_settings');
 }
-global $i;
+
 function register_my_cool_plugin_settings() {
     //register our settings
-    
-    for ($i = 0; $i > 10; $i++; ) {
-        register_setting('my-cool-plugin-settings-group', 'new_option_name');
+
+    register_setting('my-cool-plugin-settings-group', 'new_option_name');
 //    register_setting('my-cool-plugin-settings-group', 'some_other_option');
 //    register_setting('my-cool-plugin-settings-group', 'option_etc');
-    }
 }
 
 function my_cool_plugin_settings_page() {
@@ -56,7 +54,7 @@ function my_cool_plugin_settings_page() {
         <h1>email-restricted</h1>
 
         <form method="post" action="options.php">
-    <?php settings_fields('my-cool-plugin-settings-group'); ?>
+            <?php settings_fields('my-cool-plugin-settings-group'); ?>
     <?php do_settings_sections('my-cool-plugin-settings-group'); ?>
             <table class="form-table">
                 <tr valign="top">
@@ -73,11 +71,11 @@ function my_cool_plugin_settings_page() {
     <?php
 }
 
-add_action('registration_errors', 'validate_email_domain', 10, 3);
-
-function validate_email_domain($errors, $login, $email) {
-    if (is_email($email) and substr($email, -3) != 'new_option_name') {
-        $errors->add('email_domain', __('ERROR: You may only register with a withespace email address.'));
-    }
-    return $errors;
-}
+//add_action('registration_errors', 'validate_email_domain', 10, 3);
+//
+//function validate_email_domain($errors, $login, $email) {
+//    if (is_email($email) and substr($email, -3) != 'new_option_name') {
+//        $errors->add('email_domain', __('ERROR: You may only register with a withespace email address.'));
+//    }
+//    return $errors;
+//}
