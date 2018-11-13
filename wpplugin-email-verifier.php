@@ -79,3 +79,5 @@ function my_cool_plugin_settings_page() {
 //    }
 //    return $errors;
 //}
+
+//Пробваме с този далеч по чист вид?
